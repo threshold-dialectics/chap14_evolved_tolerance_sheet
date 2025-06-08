@@ -1,0 +1,17 @@
+[
+  {
+    "analysis_group": "TimeSeries_Peaks",
+    "regime": "Shock",
+    "metric": "environment_time",
+    "gen_first_peak": NaN,
+    "gen_first_trough": NaN,
+    "gen_slope_flip": NaN,
+    "peak_value": NaN,
+    "trough_value": NaN,
+    "auc_full_run": 1499962.5
+  },
+  {
+    "analysis_group": "TimeSeries_Peaks",
+    "regime": "Shock",
+    "metric": "population_size",
+    "gen_first_peak": 

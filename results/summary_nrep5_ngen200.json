@@ -1,0 +1,895 @@
+{
+  "meta": {
+    "num_generations": 200,
+    "num_replicates": 5,
+    "seed": 42,
+    "regimes": [
+      "Shock",
+      "Scarcity",
+      "Flux"
+    ]
+  },
+  "group_legend": {
+    "TimeSeries_Peaks": "peak/trough positions & AUC of per-generation means",
+    "Ternary_Path": "length & net angle of mean w-vector trajectory",
+    "Final_Mean_Wk_Endpoint": "final 30-gen mean ± CI95",
+    "Delta_Wk_Endpoint": "final-minus-initial change ± CI95",
+    "Longitudinal_Trend": "slope, p, r for mean vs generation"
+  },
+  "variable_legend": {
+    "environment_time": "elapsed simulation steps",
+    "population_size": "number of living agents",
+    "num_births": "agents born during each generation",
+    "env_strain": "environmental strain signal perceived by agents",
+    "env_resources": "total resources available in environment",
+    "env_foraging_eff": "global multiplier on foraging success",
+    "mean_age": "mean age of living agents",
+    "mean_fcrit": "mean critical energy reserve per agent",
+    "median_fcrit": "median critical energy reserve per agent",
+    "mean_w1": "population-mean perceptual weighting (w1)",
+    "mean_w2": "population-mean operational weighting (w2)",
+    "mean_w3": "population-mean resilience weighting (w3)",
+    "std_w1": "standard deviation of w1 across agents",
+    "std_w2": "standard deviation of w2 across agents",
+    "std_w3": "standard deviation of w3 across agents",
+    "delta_w1": "change in mean w1 from start to finish",
+    "delta_w2": "change in mean w2 from start to finish",
+    "delta_w3": "change in mean w3 from start to finish",
+    "path_length": "distance travelled in w-space trajectory",
+    "net_angle_deg": "angle from start to final mean w-vector"
+  },
+  "statistics": [
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Shock",
+      "metric": "environment_time",
+      "gen_first_peak": null,
+      "gen_first_trough": null,
+      "gen_slope_flip": null,
+      "peak_value": null,
+      "trough_value": null,
+      "auc_full_run": 1499962.5
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Shock",
+      "metric": "population_size",
+      "gen_first_peak": 1,
+      "gen_first_trough": null,
+      "gen_slope_flip": null,
+      "peak_value": 100.0,
+      "trough_value": null,
+      "auc_full_run": 19883.0
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Shock",
+      "metric": "num_births",
+      "gen_first_peak": 3,
+      "gen_first_trough": 5,
+      "gen_slope_flip": 3,
+      "peak_value": 64.8,
+      "trough_value": 60.4,
+      "auc_full_run": 12188.400000000001
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Shock",
+      "metric": "env_strain",
+      "gen_first_peak": 6,
+      "gen_first_trough": 7,
+      "gen_slope_flip": 5,
+      "peak_value": 0.5,
+      "trough_value": 0.2,
+      "auc_full_run": 47.3
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Shock",
+      "metric": "env_resources",
+      "gen_first_peak": 7,
+      "gen_first_trough": 6,
+      "gen_slope_flip": 6,
+      "peak_value": 7281.759490223008,
+      "trough_value": 5358.227843175727,
+      "auc_full_run": 1256544.4160132913
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Shock",
+      "metric": "env_foraging_eff",
+      "gen_first_peak": null,
+      "gen_first_trough": null,
+      "gen_slope_flip": null,
+      "peak_value": null,
+      "trough_value": null,
+      "auc_full_run": 199.0
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Shock",
+      "metric": "mean_w1",
+      "gen_first_peak": 1,
+      "gen_first_trough": 2,
+      "gen_slope_flip": 1,
+      "peak_value": 0.3452841503163472,
+      "trough_value": 0.34072101823295065,
+      "auc_full_run": 69.71655546471825
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Shock",
+      "metric": "std_w1",
+      "gen_first_peak": 1,
+      "gen_first_trough": 2,
+      "gen_slope_flip": 1,
+      "peak_value": 0.2398492243046678,
+      "trough_value": 0.23801065238565414,
+      "auc_full_run": 39.76925711023242
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Shock",
+      "metric": "mean_w2",
+      "gen_first_peak": 2,
+      "gen_first_trough": 1,
+      "gen_slope_flip": 1,
+      "peak_value": 0.33191820000583794,
+      "trough_value": 0.32523862176823365,
+      "auc_full_run": 61.597525710599385
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Shock",
+      "metric": "std_w2",
+      "gen_first_peak": 6,
+      "gen_first_trough": 1,
+      "gen_slope_flip": 1,
+      "peak_value": 0.2553269855202254,
+      "trough_value": 0.2428844278062449,
+      "auc_full_run": 42.33214531545166
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Shock",
+      "metric": "mean_w3",
+      "gen_first_peak": 1,
+      "gen_first_trough": 2,
+      "gen_slope_flip": 1,
+      "peak_value": 0.3294772279154191,
+      "trough_value": 0.32736078176121125,
+      "auc_full_run": 67.68591882468236
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Shock",
+      "metric": "std_w3",
+      "gen_first_peak": 2,
+      "gen_first_trough": 1,
+      "gen_slope_flip": 1,
+      "peak_value": 0.23845811790760268,
+      "trough_value": 0.23744472393815977,
+      "auc_full_run": 42.79711078418108
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Shock",
+      "metric": "mean_age",
+      "gen_first_peak": 3,
+      "gen_first_trough": 4,
+      "gen_slope_flip": 3,
+      "peak_value": 109.8,
+      "trough_value": 108.3,
+      "auc_full_run": 23157.15202474156
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Shock",
+      "metric": "mean_fcrit",
+      "gen_first_peak": 5,
+      "gen_first_trough": 1,
+      "gen_slope_flip": 1,
+      "peak_value": 104.47578576416488,
+      "trough_value": 96.24030451614973,
+      "auc_full_run": 20926.87914273131
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Shock",
+      "metric": "median_fcrit",
+      "gen_first_peak": 2,
+      "gen_first_trough": null,
+      "gen_slope_flip": null,
+      "peak_value": 112.5,
+      "trough_value": null,
+      "auc_full_run": 22370.58788497954
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Scarcity",
+      "metric": "environment_time",
+      "gen_first_peak": null,
+      "gen_first_trough": null,
+      "gen_slope_flip": null,
+      "peak_value": null,
+      "trough_value": null,
+      "auc_full_run": 1499962.5
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Scarcity",
+      "metric": "population_size",
+      "gen_first_peak": 2,
+      "gen_first_trough": null,
+      "gen_slope_flip": null,
+      "peak_value": 100.0,
+      "trough_value": null,
+      "auc_full_run": 19866.1
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Scarcity",
+      "metric": "num_births",
+      "gen_first_peak": 3,
+      "gen_first_trough": 5,
+      "gen_slope_flip": 3,
+      "peak_value": 57.8,
+      "trough_value": 54.8,
+      "auc_full_run": 11926.599999999999
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Scarcity",
+      "metric": "env_strain",
+      "gen_first_peak": null,
+      "gen_first_trough": null,
+      "gen_slope_flip": null,
+      "peak_value": null,
+      "trough_value": null,
+      "auc_full_run": 47.760000000000005
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Scarcity",
+      "metric": "env_resources",
+      "gen_first_peak": 3,
+      "gen_first_trough": null,
+      "gen_slope_flip": null,
+      "peak_value": 15000.0,
+      "trough_value": null,
+      "auc_full_run": 2977812.5
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Scarcity",
+      "metric": "env_foraging_eff",
+      "gen_first_peak": null,
+      "gen_first_trough": null,
+      "gen_slope_flip": null,
+      "peak_value": null,
+      "trough_value": null,
+      "auc_full_run": 199.0
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Scarcity",
+      "metric": "mean_w1",
+      "gen_first_peak": 2,
+      "gen_first_trough": 1,
+      "gen_slope_flip": 1,
+      "peak_value": 0.32963052240883317,
+      "trough_value": 0.3263260746544575,
+      "auc_full_run": 42.41505574813506
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Scarcity",
+      "metric": "std_w1",
+      "gen_first_peak": 2,
+      "gen_first_trough": 1,
+      "gen_slope_flip": 1,
+      "peak_value": 0.2323382389848136,
+      "trough_value": 0.23107699574779977,
+      "auc_full_run": 27.905482135906652
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Scarcity",
+      "metric": "mean_w2",
+      "gen_first_peak": 1,
+      "gen_first_trough": 2,
+      "gen_slope_flip": 1,
+      "peak_value": 0.36388435995151813,
+      "trough_value": 0.35570404492685037,
+      "auc_full_run": 115.33067025031815
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Scarcity",
+      "metric": "std_w2",
+      "gen_first_peak": 3,
+      "gen_first_trough": 1,
+      "gen_slope_flip": 1,
+      "peak_value": 0.2464819485639595,
+      "trough_value": 0.24433577039204293,
+      "auc_full_run": 34.77318324559694
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Scarcity",
+      "metric": "mean_w3",
+      "gen_first_peak": 2,
+      "gen_first_trough": 1,
+      "gen_slope_flip": 1,
+      "peak_value": 0.3146654326643165,
+      "trough_value": 0.30978956539402436,
+      "auc_full_run": 41.25427400154679
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Scarcity",
+      "metric": "std_w3",
+      "gen_first_peak": 6,
+      "gen_first_trough": 4,
+      "gen_slope_flip": 4,
+      "peak_value": 0.22694220558573472,
+      "trough_value": 0.2215279800606716,
+      "auc_full_run": 29.43391682869511
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Scarcity",
+      "metric": "mean_age",
+      "gen_first_peak": 7,
+      "gen_first_trough": 9,
+      "gen_slope_flip": 7,
+      "peak_value": 130.05,
+      "trough_value": 120.45,
+      "auc_full_run": 23533.88595304412
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Scarcity",
+      "metric": "mean_fcrit",
+      "gen_first_peak": 5,
+      "gen_first_trough": 3,
+      "gen_slope_flip": 3,
+      "peak_value": 93.65435152665353,
+      "trough_value": 92.01929861302764,
+      "auc_full_run": 18819.3343655356
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Scarcity",
+      "metric": "median_fcrit",
+      "gen_first_peak": 2,
+      "gen_first_trough": 1,
+      "gen_slope_flip": 1,
+      "peak_value": 98.3399939835306,
+      "trough_value": 97.81781344823868,
+      "auc_full_run": 20220.69323636473
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Flux",
+      "metric": "environment_time",
+      "gen_first_peak": null,
+      "gen_first_trough": null,
+      "gen_slope_flip": null,
+      "peak_value": null,
+      "trough_value": null,
+      "auc_full_run": 1499962.5
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Flux",
+      "metric": "population_size",
+      "gen_first_peak": 1,
+      "gen_first_trough": null,
+      "gen_slope_flip": null,
+      "peak_value": 100.0,
+      "trough_value": null,
+      "auc_full_run": 19880.7
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Flux",
+      "metric": "num_births",
+      "gen_first_peak": 3,
+      "gen_first_trough": 4,
+      "gen_slope_flip": 3,
+      "peak_value": 65.2,
+      "trough_value": 59.6,
+      "auc_full_run": 12176.2
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Flux",
+      "metric": "env_strain",
+      "gen_first_peak": 1,
+      "gen_first_trough": 2,
+      "gen_slope_flip": 1,
+      "peak_value": 0.27999999999999997,
+      "trough_value": 0.2,
+      "auc_full_run": 47.760000000000005
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Flux",
+      "metric": "env_resources",
+      "gen_first_peak": 1,
+      "gen_first_trough": null,
+      "gen_slope_flip": null,
+      "peak_value": 15000.0,
+      "trough_value": null,
+      "auc_full_run": 2983375.0
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Flux",
+      "metric": "env_foraging_eff",
+      "gen_first_peak": 2,
+      "gen_first_trough": 1,
+      "gen_slope_flip": 1,
+      "peak_value": 1.2,
+      "trough_value": 0.6,
+      "auc_full_run": 179.10000000000008
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Flux",
+      "metric": "mean_w1",
+      "gen_first_peak": 2,
+      "gen_first_trough": 4,
+      "gen_slope_flip": 2,
+      "peak_value": 0.3552413028728522,
+      "trough_value": 0.34627739362076326,
+      "auc_full_run": 70.63344038527302
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Flux",
+      "metric": "std_w1",
+      "gen_first_peak": 3,
+      "gen_first_trough": 1,
+      "gen_slope_flip": 1,
+      "peak_value": 0.24062766862831203,
+      "trough_value": 0.23576289856429916,
+      "auc_full_run": 44.68168997291512
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Flux",
+      "metric": "mean_w2",
+      "gen_first_peak": 2,
+      "gen_first_trough": 1,
+      "gen_slope_flip": 1,
+      "peak_value": 0.3314389471392499,
+      "trough_value": 0.3264285707219906,
+      "auc_full_run": 67.95820817022653
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Flux",
+      "metric": "std_w2",
+      "gen_first_peak": 2,
+      "gen_first_trough": 1,
+      "gen_slope_flip": 1,
+      "peak_value": 0.2441908484651444,
+      "trough_value": 0.23835798771722452,
+      "auc_full_run": 43.45526503185057
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Flux",
+      "metric": "mean_w3",
+      "gen_first_peak": 4,
+      "gen_first_trough": 2,
+      "gen_slope_flip": 2,
+      "peak_value": 0.3269701020608381,
+      "trough_value": 0.3133197499878979,
+      "auc_full_run": 60.40835144450044
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Flux",
+      "metric": "std_w3",
+      "gen_first_peak": 5,
+      "gen_first_trough": 2,
+      "gen_slope_flip": 2,
+      "peak_value": 0.23793743265270217,
+      "trough_value": 0.23284897322741735,
+      "auc_full_run": 36.79946800557211
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Flux",
+      "metric": "mean_age",
+      "gen_first_peak": 8,
+      "gen_first_trough": 12,
+      "gen_slope_flip": 8,
+      "peak_value": 128.4,
+      "trough_value": 112.35,
+      "auc_full_run": 23086.247355160973
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Flux",
+      "metric": "mean_fcrit",
+      "gen_first_peak": 2,
+      "gen_first_trough": 1,
+      "gen_slope_flip": 1,
+      "peak_value": 98.14465472926506,
+      "trough_value": 93.93995261417767,
+      "auc_full_run": 19715.88498295307
+    },
+    {
+      "analysis_group": "TimeSeries_Peaks",
+      "regime": "Flux",
+      "metric": "median_fcrit",
+      "gen_first_peak": 2,
+      "gen_first_trough": 1,
+      "gen_slope_flip": 1,
+      "peak_value": 106.23581066105665,
+      "trough_value": 98.06915353211002,
+      "auc_full_run": 21313.203533402277
+    },
+    {
+      "analysis_group": "Ternary_Path",
+      "regime": "Shock",
+      "path_length": 1.4236632789599493,
+      "net_angle_deg": 121.49338538907469
+    },
+    {
+      "analysis_group": "Ternary_Path",
+      "regime": "Scarcity",
+      "path_length": 1.1067874161477202,
+      "net_angle_deg": -26.737349132540317
+    },
+    {
+      "analysis_group": "Ternary_Path",
+      "regime": "Flux",
+      "path_length": 1.3605190654856734,
+      "net_angle_deg": -123.07351607155834
+    },
+    {
+      "analysis_group": "Final_Mean_Wk_Endpoint",
+      "regime": "Shock",
+      "metric": "mean_w1",
+      "mean": 0.3334805910293892,
+      "ci95_low": 0.16408570382057755,
+      "ci95_high": 0.5028754782382009,
+      "N_replicates": 5
+    },
+    {
+      "analysis_group": "Final_Mean_Wk_Endpoint",
+      "regime": "Shock",
+      "metric": "mean_w2",
+      "mean": 0.2999024189007521,
+      "ci95_low": 0.1671239867728363,
+      "ci95_high": 0.4326808510286679,
+      "N_replicates": 5
+    },
+    {
+      "analysis_group": "Final_Mean_Wk_Endpoint",
+      "regime": "Shock",
+      "metric": "mean_w3",
+      "mean": 0.36661699006985876,
+      "ci95_low": 0.08584551171292687,
+      "ci95_high": 0.6473884684267907,
+      "N_replicates": 5
+    },
+    {
+      "analysis_group": "Final_Mean_Wk_Endpoint",
+      "regime": "Scarcity",
+      "metric": "mean_w1",
+      "mean": 0.17734383324302458,
+      "ci95_low": 0.08000610333946492,
+      "ci95_high": 0.2746815631465842,
+      "N_replicates": 5
+    },
+    {
+      "analysis_group": "Final_Mean_Wk_Endpoint",
+      "regime": "Scarcity",
+      "metric": "mean_w2",
+      "mean": 0.6287268403601999,
+      "ci95_low": 0.5398423471553379,
+      "ci95_high": 0.7176113335650619,
+      "N_replicates": 5
+    },
+    {
+      "analysis_group": "Final_Mean_Wk_Endpoint",
+      "regime": "Scarcity",
+      "metric": "mean_w3",
+      "mean": 0.1939293263967755,
+      "ci95_low": 0.11252495665876304,
+      "ci95_high": 0.2753336961347879,
+      "N_replicates": 5
+    },
+    {
+      "analysis_group": "Final_Mean_Wk_Endpoint",
+      "regime": "Flux",
+      "metric": "mean_w1",
+      "mean": 0.38495763286361145,
+      "ci95_low": 0.21909266706032723,
+      "ci95_high": 0.5508225986668956,
+      "N_replicates": 5
+    },
+    {
+      "analysis_group": "Final_Mean_Wk_Endpoint",
+      "regime": "Flux",
+      "metric": "mean_w2",
+      "mean": 0.35014253578420007,
+      "ci95_low": 0.17300358745423053,
+      "ci95_high": 0.5272814841141696,
+      "N_replicates": 5
+    },
+    {
+      "analysis_group": "Final_Mean_Wk_Endpoint",
+      "regime": "Flux",
+      "metric": "mean_w3",
+      "mean": 0.2648998313521884,
+      "ci95_low": 0.17457101547517262,
+      "ci95_high": 0.3552286472292042,
+      "N_replicates": 5
+    },
+    {
+      "analysis_group": "Delta_Wk_Endpoint",
+      "regime": "Shock",
+      "metric": "delta_w1",
+      "mean": -0.0043613358022914885,
+      "ci95_low": -0.14521949431548586,
+      "ci95_high": 0.1364968227109029,
+      "N_replicates": 5
+    },
+    {
+      "analysis_group": "Delta_Wk_Endpoint",
+      "regime": "Scarcity",
+      "metric": "delta_w1",
+      "mean": -0.15596203721130794,
+      "ci95_low": -0.24632723318334881,
+      "ci95_high": -0.06559684123926707,
+      "N_replicates": 5
+    },
+    {
+      "analysis_group": "Delta_Wk_Endpoint",
+      "regime": "Flux",
+      "metric": "delta_w1",
+      "mean": 0.03768984858816243,
+      "ci95_low": -0.12212123110159626,
+      "ci95_high": 0.19750092827792112,
+      "N_replicates": 5
+    },
+    {
+      "analysis_group": "Delta_Wk_Endpoint",
+      "regime": "Shock",
+      "metric": "delta_w2",
+      "mean": -0.034992259917850564,
+      "ci95_low": -0.1769088609641705,
+      "ci95_high": 0.10692434112846935,
+      "N_replicates": 5
+    },
+    {
+      "analysis_group": "Delta_Wk_Endpoint",
+      "regime": "Scarcity",
+      "metric": "delta_w2",
+      "mean": 0.2838259038421863,
+      "ci95_low": 0.21235608595830563,
+      "ci95_high": 0.355295721726067,
+      "N_replicates": 5
+    },
+    {
+      "analysis_group": "Delta_Wk_Endpoint",
+      "regime": "Flux",
+      "metric": "delta_w2",
+      "mean": 0.022705326025273476,
+      "ci95_low": -0.14215054079000594,
+      "ci95_high": 0.1875611928405529,
+      "N_replicates": 5
+    },
+    {
+      "analysis_group": "Delta_Wk_Endpoint",
+      "regime": "Shock",
+      "metric": "delta_w3",
+      "mean": 0.03935359572014199,
+      "ci95_low": -0.23104051094221809,
+      "ci95_high": 0.30974770238250204,
+      "N_replicates": 5
+    },
+    {
+      "analysis_group": "Delta_Wk_Endpoint",
+      "regime": "Scarcity",
+      "metric": "delta_w3",
+      "mean": -0.12786386663087848,
+      "ci95_low": -0.1762447184776727,
+      "ci95_high": -0.07948301478408427,
+      "N_replicates": 5
+    },
+    {
+      "analysis_group": "Delta_Wk_Endpoint",
+      "regime": "Flux",
+      "metric": "delta_w3",
+      "mean": -0.060395174613435895,
+      "ci95_low": -0.1299056010138981,
+      "ci95_high": 0.00911525178702631,
+      "N_replicates": 5
+    },
+    {
+      "analysis_group": "Longitudinal_Trend",
+      "regime": "Shock",
+      "metric": "mean_w1",
+      "statistic_slope": 0.00010030311785740848,
+      "p_value": 0.005088846861102258,
+      "r_value": 0.19737053486671538,
+      "std_err": 3.5405550606824414e-05,
+      "intercept": 0.3402958286505442,
+      "significance_marker": "**",
+      "first_value": 0.3378419268316807,
+      "last_value": 0.33944269467435156
+    },
+    {
+      "analysis_group": "Longitudinal_Trend",
+      "regime": "Shock",
+      "metric": "mean_w2",
+      "statistic_slope": -0.00013373101709065078,
+      "p_value": 6.636170242488736e-11,
+      "r_value": -0.44057551170248765,
+      "std_err": 1.936501995421634e-05,
+      "intercept": 0.32283339850743104,
+      "significance_marker": "***",
+      "first_value": 0.3348946788186026,
+      "last_value": 0.28091882274711366
+    },
+    {
+      "analysis_group": "Longitudinal_Trend",
+      "regime": "Shock",
+      "metric": "mean_w3",
+      "statistic_slope": 3.3427899233242526e-05,
+      "p_value": 0.3795903386887204,
+      "r_value": 0.06246084945439465,
+      "std_err": 3.7959438268969734e-05,
+      "intercept": 0.33687077284202477,
+      "significance_marker": "",
+      "first_value": 0.32726339434971685,
+      "last_value": 0.3796384825785347
+    },
+    {
+      "analysis_group": "Longitudinal_Trend",
+      "regime": "Scarcity",
+      "metric": "mean_w1",
+      "statistic_slope": -0.0006325371137329353,
+      "p_value": 7.390306062238371e-68,
+      "r_value": -0.8855724095901565,
+      "std_err": 2.3578508185404216e-05,
+      "intercept": 0.2763008616123847,
+      "significance_marker": "***",
+      "first_value": 0.3333058704543325,
+      "last_value": 0.1819501516585963
+    },
+    {
+      "analysis_group": "Longitudinal_Trend",
+      "regime": "Scarcity",
+      "metric": "mean_w2",
+      "statistic_slope": 0.0010262660909512973,
+      "p_value": 2.484191256269039e-49,
+      "r_value": 0.8174873223806566,
+      "std_err": 5.1384078381009475e-05,
+      "intercept": 0.47695315148118517,
+      "significance_marker": "***",
+      "first_value": 0.34490093651801357,
+      "last_value": 0.6204095751814135
+    },
+    {
+      "analysis_group": "Longitudinal_Trend",
+      "regime": "Scarcity",
+      "metric": "mean_w3",
+      "statistic_slope": -0.0003937289772183613,
+      "p_value": 3.3616353410263014e-20,
+      "r_value": -0.5907070072467298,
+      "std_err": 3.822125232398077e-05,
+      "intercept": 0.24674598690643001,
+      "significance_marker": "***",
+      "first_value": 0.32179319302765397,
+      "last_value": 0.19764027315999017
+    },
+    {
+      "analysis_group": "Longitudinal_Trend",
+      "regime": "Flux",
+      "metric": "mean_w1",
+      "statistic_slope": 7.135355194399284e-05,
+      "p_value": 0.002898923514426189,
+      "r_value": 0.209564659247826,
+      "std_err": 2.36598875207718e-05,
+      "intercept": 0.34797123024973087,
+      "significance_marker": "**",
+      "first_value": 0.347267784275449,
+      "last_value": 0.41421491244175535
+    },
+    {
+      "analysis_group": "Longitudinal_Trend",
+      "regime": "Flux",
+      "metric": "mean_w2",
+      "statistic_slope": 0.000371675043940491,
+      "p_value": 1.349825153741609e-32,
+      "r_value": 0.714906718292666,
+      "std_err": 2.5834209101560333e-05,
+      "intercept": 0.30443649506565057,
+      "significance_marker": "***",
+      "first_value": 0.32743720975892654,
+      "last_value": 0.32341122487979523
+    },
+    {
+      "analysis_group": "Longitudinal_Trend",
+      "regime": "Flux",
+      "metric": "mean_w3",
+      "statistic_slope": -0.00044302859588448367,
+      "p_value": 4.4495585015747014e-73,
+      "r_value": -0.8993765655861062,
+      "std_err": 1.5304272950546013e-05,
+      "intercept": 0.3475922746846185,
+      "significance_marker": "***",
+      "first_value": 0.3252950059656244,
+      "last_value": 0.2623738626784494
+    }
+  ],
+  "group_tests": [
+    {
+      "metric": "mean_w1",
+      "F": 4.115557660951168,
+      "p": 0.04354803088748129,
+      "eta_sq": 0.406854253506789,
+      "pairwise": {
+        "Shock-Scarcity": 0.06564582957417714,
+        "Shock-Flux": 0.5633083824574411,
+        "Scarcity-Flux": 0.02201750867595894
+      }
+    },
+    {
+      "metric": "mean_w2",
+      "F": 12.750412073165583,
+      "p": 0.0010736002476287197,
+      "eta_sq": 0.6800070325608027,
+      "pairwise": {
+        "Shock-Scarcity": 0.0007303612233784704,
+        "Shock-Flux": 0.5475496832166824,
+        "Scarcity-Flux": 0.00824233060212782
+      }
+    },
+    {
+      "metric": "mean_w3",
+      "F": 1.8610802218452105,
+      "p": 0.19770339757426053,
+      "eta_sq": 0.23674611749584257,
+      "pairwise": {}
+    },
+    {
+      "metric": "delta_w1",
+      "F": 4.4809648280250025,
+      "p": 0.03519653583426009,
+      "eta_sq": 0.4275336194281822,
+      "pairwise": {
+        "Shock-Scarcity": 0.040977054703961964,
+        "Shock-Flux": 0.5988326720147429,
+        "Scarcity-Flux": 0.024791790148075372
+      }
+    },
+    {
+      "metric": "delta_w2",
+      "F": 12.730526695384878,
+      "p": 0.0010804571898477056,
+      "eta_sq": 0.6796673100773841,
+      "pairwise": {
+        "Shock-Scarcity": 0.0014947193736206865,
+        "Shock-Flux": 0.482951495510196,
+        "Scarcity-Flux": 0.008344055625504297
+      }
+    },
+    {
+      "metric": "delta_w3",
+      "F": 2.03857986094732,
+      "p": 0.1729145417416612,
+      "eta_sq": 0.2535995034211278,
+      "pairwise": {}
+    }
+  ]
+}
