@@ -1,4 +1,4 @@
-#evolved_simulation_code_refactored.py
+#evolved_simulation_code.py
 import json
 import numpy as np
 import pandas as pd
@@ -12,6 +12,15 @@ import seaborn as sns
 import os
 from itertools import combinations
 from sklearn.linear_model import LinearRegression  # For trend analysis
+
+# Increase base font sizes for readability in generated figures
+# These defaults work well for the stand alone figures such as the
+# ternary plot.  They will be overridden for the distribution plots
+# which are later scaled down threefold for print.
+plt.rc('font', size=14)
+plt.rc('axes', titlesize=14, labelsize=14)
+plt.rc('xtick', labelsize=10)
+plt.rc('ytick', labelsize=10)
 
 # --- Configuration Dictionary ---
 # REFACTORED CONFIG to strengthen w_k selection pressures
@@ -930,7 +939,7 @@ if __name__ == "__main__":
                              ax_mean.fill_between(df_mean_over_reps["generation"], df_mean_over_reps[mean_col]-df_std_over_reps[std_col_of_means],
                                              df_mean_over_reps[mean_col]+df_std_over_reps[std_col_of_means], color=plot_colors[regime_name], alpha=0.15)
                     ax_mean.set_ylabel(f"Mean Pop. ${wk_label}$"); ax_mean.grid(True)
-                    if k_idx ==0: ax_mean.legend(title="Regime - Mean $w_k$", fontsize='small')
+                    if k_idx ==0: ax_mean.legend(title="Regime - Mean $w_k$", fontsize=16)
 
                     if std_intra_pop_col in df_mean_over_reps:
                         ax_std_intra.plot(df_mean_over_reps["generation"], df_mean_over_reps[std_intra_pop_col], label=f'{regime_name}', color=plot_colors[regime_name], alpha=0.9, linestyle='--')
@@ -938,7 +947,7 @@ if __name__ == "__main__":
                             ax_std_intra.fill_between(df_mean_over_reps["generation"], df_mean_over_reps[std_intra_pop_col]-df_std_over_reps[std_intra_pop_col],
                                                 df_mean_over_reps[std_intra_pop_col]+df_std_over_reps[std_intra_pop_col], color=plot_colors[regime_name], alpha=0.1)
                     ax_std_intra.set_ylabel(f"Mean Intra-Pop SD ${wk_label}$"); ax_std_intra.grid(True)
-                    if k_idx == 0: ax_std_intra.legend(title="Regime - $w_k$ Spread", fontsize='small')
+                    if k_idx == 0: ax_std_intra.legend(title="Regime - $w_k$ Spread", fontsize=16)
 
 
                 metrics_to_plot_right = ["population_size", "mean_fcrit", "num_births", "mean_g_lever", "mean_beta_lever"]
@@ -951,18 +960,18 @@ if __name__ == "__main__":
                             ax_r.fill_between(df_mean_over_reps["generation"], df_mean_over_reps[metric_name]-df_std_over_reps[metric_name],
                                               df_mean_over_reps[metric_name]+df_std_over_reps[metric_name], color=plot_colors[regime_name], alpha=0.15)
                     ax_r.set_ylabel(y_labels_right[r_idx]); ax_r.grid(True)
-                    if r_idx == 0: ax_r.legend(title="Regime - Demographics/Levers", fontsize='small')
+                    if r_idx == 0: ax_r.legend(title="Regime - Demographics/Levers", fontsize=16)
                 axes_ts[len(metrics_to_plot_right)-1, 1].set_xlabel("Generation")
 
         fig_ts.suptitle(f"Evolution of Population $w_k$ Profiles, Demographics, and Levers (Mean $\pm$ SD over {num_replicates} Replicates, {num_generations_config} Generations)", fontsize=16)
         plt.tight_layout(rect=[0, 0, 1, 0.96])
-        fig_ts.savefig(os.path.join(RESULTS_FOLDER, f"wk_evolution_timeseries_nrep{num_replicates}_ngen{num_generations_config}.png"), dpi=300); plt.show()
+        fig_ts.savefig(os.path.join(RESULTS_FOLDER, f"wk_evolution_timeseries_nrep{num_replicates}_ngen{num_generations_config}.png"), dpi=350); plt.show()
 
         # Ternary Plot
         if 'ternary' in sys.modules:
             figure_tern, tax_reordered = ternary.figure(scale=1.0); tax_reordered.boundary(linewidth=1.5)
             tax_reordered.gridlines(color="gray", multiple=0.2, linewidth=0.5, alpha=0.6)
-            tax_reordered.set_title(f"Mean $w_k$ Trajectories & Endpoints (N Replicates={num_replicates}, {num_generations_config} Gens)", fontsize=14)
+            #tax_reordered.set_title(f"Mean $w_k$ Trajectories & Endpoints (N Replicates={num_replicates}, {num_generations_config} Gens)", fontsize=14)
 
             for regime_name in regimes_to_run:
                 if regime_name in all_regime_pop_data and not all_regime_pop_data[regime_name].empty:
@@ -1002,21 +1011,28 @@ if __name__ == "__main__":
 
             start_dummy = (1/3, 1/3, 1/3)
             tax_reordered.scatter([start_dummy], marker='s', color='lightgray', edgecolors='k', s=70, alpha=0.0, label='Start Point')
-            tax_reordered.legend(title="Regime", fontsize='small', loc='center left', bbox_to_anchor=(1.05, 0.5))
-            tax_reordered.ticks(axis='lbr', linewidth=1, multiple=0.2, tick_formats="%.1f", offset=0.02, fontsize=8)
+            tax_reordered.legend(title="Regime", fontsize=14, loc='center left', bbox_to_anchor=(1.05, 0.5))
+            tax_reordered.ticks(axis='lbr', linewidth=1, multiple=0.2, tick_formats="%.1f", offset=0.02, fontsize=10)
             tax_reordered.get_axes().axis('off'); tax_reordered.clear_matplotlib_ticks()
-            tax_reordered.right_corner_label("$w_3$ (Slack)", fontsize=11); tax_reordered.top_corner_label("$w_1$ (Perception)", fontsize=11); tax_reordered.left_corner_label("$w_2$ (Precision)", fontsize=11)
-            plt.tight_layout(); figure_tern.savefig(os.path.join(RESULTS_FOLDER, f"wk_evolution_ternary_nrep{num_replicates}_ngen{num_generations_config}.png"), dpi=300, bbox_inches='tight'); plt.show()
+            tax_reordered.right_corner_label("$w_3$ (Slack)", fontsize=14, offset=0.12); tax_reordered.top_corner_label("$w_1$ (Perception)", fontsize=14, offset=0.12); tax_reordered.left_corner_label("$w_2$ (Precision)", fontsize=14, offset=0.12)
+            plt.tight_layout(); figure_tern.savefig(os.path.join(RESULTS_FOLDER, f"wk_evolution_ternary_nrep{num_replicates}_ngen{num_generations_config}.png"), dpi=350, bbox_inches='tight'); plt.show()
 
         # KDE plots
         log_wk_dist_gens_plot = CONFIG["simulation"]["log_wk_dist_gens"]
         if log_wk_dist_gens_plot:
+            # Distribution plots will be scaled down in the final layout.
+            # Increase fonts so that they remain above Amazon's 7pt minimum
+            # after a threefold reduction in size.
+            plt.rc('font', size=21)
+            plt.rc('axes', titlesize=21, labelsize=21)
+            plt.rc('xtick', labelsize=21)
+            plt.rc('ytick', labelsize=21)
             for gen_snapshot in log_wk_dist_gens_plot:
                 if gen_snapshot >= num_generations_config:
                     print(f"Skipping KDE plot for gen {gen_snapshot} as it exceeds num_generations {num_generations_config}")
                     continue
                 fig_kde, axes_kde = plt.subplots(1, 3, figsize=(20, 6), sharey=True)
-                fig_kde.suptitle(f"$w_k$ Population Distributions at Generation {gen_snapshot} (All Replicates Pooled, N Replicates={num_replicates}, {num_generations_config} Total Gens)", fontsize=16)
+                #fig_kde.suptitle(f"$w_k$ Population Distributions at Generation {gen_snapshot} (All Replicates Pooled, N Replicates={num_replicates}, {num_generations_config} Total Gens)", fontsize=16)
                 for i_wk, wk_label_short in enumerate(["w1", "w2", "w3"]):
                     ax_curr = axes_kde[i_wk]
                     for regime_name in regimes_to_run:
@@ -1040,10 +1056,21 @@ if __name__ == "__main__":
                                                                     'q50': q50,
                                                                     'q75': q75,
                                                                     'q95': q95})
-                    ax_curr.set_title(f"Distribution of ${wk_label_short}$"); ax_curr.set_xlabel(f"${wk_label_short}$ value")
-                    ax_curr.legend(fontsize='small'); ax_curr.grid(True); ax_curr.set_xlim(0,1)
-                axes_kde[0].set_ylabel("Density"); plt.tight_layout(rect=[0, 0, 1, 0.95])
-                fig_kde.savefig(os.path.join(RESULTS_FOLDER, f"wk_dist_kde_gen_{gen_snapshot}_nrep{num_replicates}_ngen{num_generations_config}.png"), dpi=300); plt.show()
+                    ax_curr.set_title(f"Distribution of ${wk_label_short}$", fontsize=21)
+                    ax_curr.set_xlabel(f"${wk_label_short}$ value", fontsize=21)
+                    ax_curr.legend(fontsize=21); ax_curr.grid(True); ax_curr.set_xlim(0,1)
+                    ax_curr.tick_params(axis='both', labelsize=21)
+                axes_kde[0].set_ylabel("Density", fontsize=21)
+                for ax_tmp in axes_kde:
+                    ax_tmp.tick_params(axis='both', labelsize=21)
+                plt.tight_layout(rect=[0, 0, 1, 0.95])
+                fig_kde.savefig(os.path.join(RESULTS_FOLDER, f"wk_dist_kde_gen_{gen_snapshot}_nrep{num_replicates}_ngen{num_generations_config}.png"), dpi=350); plt.show()
+
+            # Restore the smaller base font sizes for any subsequent figures
+            plt.rc('font', size=14)
+            plt.rc('axes', titlesize=14, labelsize=14)
+            plt.rc('xtick', labelsize=10)
+            plt.rc('ytick', labelsize=10)
 
         # --- Statistical Tests ---
         # (Statistical test logging code from previous response goes here)
@@ -1262,7 +1289,7 @@ if __name__ == "__main__":
                                 slope, intercept, _, _, _ = stats.linregress(x_data[valid_scatter_indices], y_data[valid_scatter_indices])
                                 x_vals_plot = np.array([x_data[valid_scatter_indices].min(), x_data[valid_scatter_indices].max()]); plt.plot(x_vals_plot, intercept + slope * x_vals_plot, label=f'{band_scatter} fit')
                     plt.title(f'{regime_for_plot} Regime: w3 vs Total Fcrit Gathered (N Replicates={num_replicates}, {num_generations_config} Gens)'); plt.xlabel('w3'); plt.ylabel('Total Fcrit Gathered'); plt.legend(); plt.tight_layout()
-                    plt.savefig(os.path.join(RESULTS_FOLDER, f"fitness_scatter_{regime_for_plot.lower()}_w3_vs_fcrit_nrep{num_replicates}_ngen{num_generations_config}.png"), dpi=300); plt.show()
+                    plt.savefig(os.path.join(RESULTS_FOLDER, f"fitness_scatter_{regime_for_plot.lower()}_w3_vs_fcrit_nrep{num_replicates}_ngen{num_generations_config}.png"), dpi=350); plt.show()
         else: no_fitness_log_print = "Individual agent fitness logging was not enabled sufficiently for analysis."; print(no_fitness_log_print); append_stat({'analysis_group': 'Fitness_Correlation_Setup', 'notes': no_fitness_log_print.strip()})
     else: print("No simulation data was generated for plotting.")
 
